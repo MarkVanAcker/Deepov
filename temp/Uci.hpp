@@ -33,12 +33,12 @@
 
 namespace thrd = std;
 
-#include "Board.hpp"
-#include "Move.hpp"
+#include "../src/Board.hpp"
+#include "../src/Move.hpp"
 #include "UciOption.hpp"
-#include "TT.hpp"
-#include "Types.hpp"
-#include "Search.hpp"
+#include "../src/TT.hpp"
+#include "../src/Types.hpp"
+#include "../src/Search.hpp"
 
 //Uci documentation:
 //http://wbec-ridderkerk.nl/html/UCIProtocol.html

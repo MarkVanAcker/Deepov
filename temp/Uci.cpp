@@ -24,12 +24,12 @@
 #include <thread>         // std::thread
 
 
-#include "Board.hpp"
-#include "Move.hpp"
-#include "MoveGen.hpp"
+#include "../src/Board.hpp"
+#include "../src/Move.hpp"
+#include "../src/MoveGen.hpp"
 #include "Uci.hpp"
-#include "Search.hpp"
-#include "TimeManager.hpp"
+#include "../src/Search.hpp"
+#include "../src/TimeManager.hpp"
 
 
 //Uci documentation:

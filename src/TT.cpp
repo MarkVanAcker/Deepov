@@ -31,15 +31,16 @@ void TT::init_TT_size(int sizeMBytes) // Default value TEST_MB_SIZE
     
     myTTSize = nEntries;
 
-    try
-    {
-        myTTTable = new TTEntry [myTTSize];
-    }
-    catch (std::bad_alloc&)
-    {
-        std::cerr << "Failed to allocate transposition hash table" << std::endl;
-        exit(EXIT_FAILURE);
-    }
+   // no exceptions in wasmi
+   // try
+   //{
+   myTTTable = new TTEntry [myTTSize];
+   //}
+   //catch (std::bad_alloc&)
+   //{
+   //     std::cerr << "Failed to allocate transposition hash table" << std::endl;
+   //     exit(EXIT_FAILURE);
+   // }
 
     clearTT();
 }

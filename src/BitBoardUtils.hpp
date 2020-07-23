@@ -21,9 +21,9 @@
 #define BITBOARDUTILS_HPP_
 
 #include <vector>
-#include <iostream>
+//#include <iostream>
 #include <math.h>
-#include <sstream>
+//#include <sstream>
 #include <chrono>
 
 #include "Types.hpp"
@@ -85,6 +85,7 @@ inline unsigned int popcount64sparse(U64 bitboard)
 //https://github.com/mcostalba/Stockfish/blob/master/src/bitboard.h#L305
 inline Square msb(const U64 bitboard)
 {
+	/*
 #ifdef _MSC_VER
 	unsigned long idx;
 	_BitScanReverse64(&idx, bitboard);
@@ -97,11 +98,15 @@ inline Square msb(const U64 bitboard)
 #endif
 
 	return (Square) idx;
-	//return static_cast<Square>(__builtin_ctzll(bitboard));
+	*/
+
+	return static_cast<Square>( 63 ^ __builtin_clzll(bitboard));
 }
 
 inline Square lsb(U64 bitboard) { // Assembly code by Heinz van Saanen
-#ifdef _MSC_VER
+
+	/*
+	#ifdef _MSC_VER
 	unsigned long idx;
 	_BitScanForward64(&idx, bitboard);
 	return (Square)idx;
@@ -112,6 +117,10 @@ inline Square lsb(U64 bitboard) { // Assembly code by Heinz van Saanen
 	return (Square)idx;
 
 #endif
+
+	*/
+
+	return static_cast<Square>(__builtin_ctzll(bitboard));
 }
 
 inline Square pop_lsb(U64* b) {
@@ -122,7 +131,7 @@ inline Square pop_lsb(U64* b) {
 
 namespace BitBoardUtils
 {
-void printBitBoard(const U64 &bitBoard);
+//void printBitBoard(const U64 &bitBoard);
 
 inline bool isBitSet(const U64 bitBoard, const unsigned int x, const unsigned int y)
 {

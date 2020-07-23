@@ -38,7 +38,7 @@ public:
     
     /* Overload access operator */
     inline TTEntry operator[](const U64 x) const {
-        if( x > myTTSize ){std::cout << "TT out of bounds" <<std::endl;return myTTTable[0];}
+        if( x > myTTSize ){/*std::cout << "TT out of bounds" <<std::endl;*/return myTTTable[0];}
         return myTTTable[x];
     }
 
@@ -68,7 +68,7 @@ private:
 };
 
 extern TT globalTT;
-
+/*
 inline std::ostream& operator<<(std::ostream &strm, const TT &tt) {
 
 	for(unsigned long int entry = 0; entry < tt.getTTSize() ; entry++)
@@ -85,7 +85,7 @@ inline std::ostream& operator<<(std::ostream &strm, const TT &tt) {
 	}
     strm << std::endl;
 	return strm;
-}
+}*/
 
 
 #endif /* TT_HPP_ */

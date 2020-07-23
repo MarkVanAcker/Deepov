@@ -79,7 +79,7 @@ namespace Pawn
     };
 };
 
-
+/*
 inline std::ostream& operator<<(std::ostream &strm, const Pawn::Entry &entry) {
 
     strm << " > ";
@@ -87,5 +87,5 @@ inline std::ostream& operator<<(std::ostream &strm, const Pawn::Entry &entry) {
     strm << "Score " << entry.score;
 	return strm;
 }
-
+*/
 #endif // Pawn_H

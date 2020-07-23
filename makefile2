@@ -8,8 +8,8 @@ CXX=/home/mark/Public/wasi-sdk-9.0/bin/clang++
 CXX_FLAGS = -W -Wall -Wcast-qual -std=c++14 -flto
 LD_FLAGS = -Wall -Wcast-qual -std=c++14 -lpthread -flto
 
-CXX_FLAGS += --sysroot=/home/mark/Public/wasi-sdk-9.0/share/wasi-sysroot -fno-exceptions -DNDEBUG -O0 -DIS_64BIT
-LD_FLAGS += --sysroot=/home/mark/Public/wasi-sdk-9.0/share/wasi-sysroot -fno-exceptions -DNDEBUG -O0 -DIS_64BIT
+CXX_FLAGS += --sysroot=/home/mark/Public/wasi-sdk-9.0/share/wasi-sysroot -fno-exceptions -DNDEBUG -O3 -DIS_64BIT
+LD_FLAGS += --sysroot=/home/mark/Public/wasi-sdk-9.0/share/wasi-sysroot -fno-exceptions -DNDEBUG -O3 -DIS_64BIT
 
 ifeq ($(NO_POPCNT), 1)
     EXTRA_FLAGS += -DNO_POPCNT
@@ -45,4 +45,3 @@ DeepovTesting: $(OBJ_TEST_FILES)
 
 obj/%.o: test/%.cpp
 	$(CXX) $(CC_FLAGS) -I $(SRC_DIR) -c -o $@ $<
-

@@ -19,10 +19,12 @@
 
 #include <vector>
 #include <memory>
+
 #include <iostream>
 #include <chrono>
 #include <ctime>
 #include <ratio>
+#include <string>
 
 #include "Types.hpp"
 #include "Eval.hpp"
@@ -32,11 +34,20 @@
 #include "Move.hpp"
 #include "MagicMoves.hpp"
 #include "Utils.hpp"
-#include "Uci.hpp"
 #include "TT.hpp"
 
 //#define PERFORMANCE_TEST
 
+
+int main_evaluate(){
+	std::shared_ptr<Board> b = std::make_shared<Board>("rnbqk2r/ppp1bppp/3p1n2/2P5/3p4/5P2/PP1PQ1PP/RNB1KB1R w KQkq - 0 8");
+	globalTT.init_TT_size(256);
+	// init Pawn hashtable
+	Pawn::initPawnTable();
+	Search mySearch = Search(b);
+	std::cout << mySearch.negaMaxRoot(1) << std::endl;
+	return mySearch.negaMaxRoot(1);
+}
 
 int main() {
 
@@ -44,19 +55,6 @@ int main() {
 	MagicMoves::initmagicmoves();
 	Tables::init();
 	ZK::initZobristKeys();
-    
-    Uci uci;
-    uci.init();
-
-	#ifdef PERFORMANCE_TEST
-
-		Utils::getPerformanceIndicator();
-
-	#else
-
-		uci.loop();
-
-	#endif
-
+	return main_evaluate();
 	return 0;
 }

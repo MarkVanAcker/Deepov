@@ -22,12 +22,6 @@
 #include "Search.hpp"
 #include "MagicMoves.hpp"
 
-#include "math.h"
-#include <iostream>
-#include <chrono>
-#include <ctime>
-#include <ratio>
-//#include <boost/algorithm/string.hpp>
 
 
 void Utils::getCastling(std::string const& castleString, unsigned int &castlingRights)
@@ -71,7 +65,7 @@ unsigned int Utils::convertStringToInt(std::string const& fenMoveCounter)
 	}
 	return counter;
 }
-
+/*
 void Utils::getPerformanceIndicator()
 {
 	for(unsigned int i = 0; i < 5; i++)
@@ -103,7 +97,8 @@ void Utils::getPerformanceIndicator()
 		std::cout << std::endl;
 	}
 }
-
+*/
+/*
 std::string Utils::Move16ToShortString(const Move16 shortMove)
 {
 //		The move format is in long algebraic notation.
@@ -151,3 +146,4 @@ std::string Utils::Move16ToShortString(const Move16 shortMove)
 
 		return ss.str();
 }
+*/

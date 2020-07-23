@@ -21,10 +21,10 @@
 #define Board_HPP_
 
 #include <cstdint>
-#include <iostream>
+//#include <iostream>
 #include <bitset>
 #include <vector>
-#include <sstream>
+//#include <sstream>
 //#include <boost/algorithm/string.hpp>
 #include <memory>
 #include <array>
@@ -314,7 +314,7 @@ private:
 		addPiece(destination, bitBoard);
 	}
 };
-
+/*
 inline std::ostream& operator<<(std::ostream &strm, const Board &Board) {
 
 	for(int rank = 7; rank >= 0 ; rank--)
@@ -344,5 +344,5 @@ inline std::ostream& operator<<(std::ostream &strm, const std::vector<Move> &mov
 
 	return strm;
 }
-
+*/
 #endif /* Board_HPP_ */

@@ -33,6 +33,7 @@ double BitBoardUtils::measurePopcntSpeed(U64 testBB, unsigned int (*f)(U64))
     return time_span.count();
 }
 
+/*
 void BitBoardUtils::printBitBoard(const U64 &bitBoard)
 {
 	std::ostringstream strm;
@@ -54,3 +55,4 @@ void BitBoardUtils::printBitBoard(const U64 &bitBoard)
 
 	std::cout << strm.str() << std::endl;
 }
+*/

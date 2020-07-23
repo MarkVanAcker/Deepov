@@ -18,8 +18,8 @@
 */
 
 #include "Move.hpp"
-#include <iostream>
-#include <sstream>
+//#include <iostream>
+//#include <sstream>
 
 std::string Move::toShortString() const
 {
@@ -60,8 +60,8 @@ std::string Move::toShortString() const
 		}
 	}
 
-	std::stringstream ss;
-	ss << letters[xOrigin] << yOrigin << letters[xDestination] << yDestination << promotionLetter;
 
-	return ss.str();
+	std::string s = letters[xOrigin] + std::to_string(yOrigin) + letters[xDestination] + std::to_string(yDestination) + promotionLetter;
+
+	return s;
 }

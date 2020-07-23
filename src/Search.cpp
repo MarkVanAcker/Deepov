@@ -463,7 +463,7 @@ int Search::negaMaxRootIterativeDeepening(const unsigned int allocatedTimeMS)
 
 		mySearchDurationMS = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
 		mySearchDurationMS = std::max(mySearchDurationMS, (unsigned int) 1); 
-		sendInfoToUCI(alpha);
+		//sendInfoToUCI(alpha);
 
 		myDepth++;
 	}
@@ -477,6 +477,7 @@ int Search::evaluate()
 	return (-2*myBoard->getColorToPlay() + 1)*myEval.evaluate(); //evaluate()/* returns +evaluate for WHITE, -evaluate for BLACK */
 }
 
+/*
 void Search::sendInfoToUCI(int alpha)
 {
 	// Send info to uci console
@@ -490,7 +491,8 @@ void Search::sendInfoToUCI(int alpha)
 //	std::cout << " pv "; TODO
 	std::cout << std::endl;
 }
-
+*/
+/*
 void Search::printPvTable(const unsigned int numLines)
 {
     unsigned int j;
@@ -509,3 +511,4 @@ void Search::printPvTable(const unsigned int numLines)
 		std::cout << std::endl;
 	}
 }
+*/

@@ -71,17 +71,52 @@ myBitboards(), myAllPieces(), myPinnedPieces(), myCastling(), myHasWhiteCastled(
 	std::vector<std::string> spaceSplit;
 	std::vector<std::string> piecesByRank;
 
+
 	//Split string
-	std::stringstream ss(fen);
-	std::string item;
-	while (std::getline(ss, item, ' ')) {
+	size_t pos = fen.find(' ');
+	size_t initialPos = 0;
+
+	// Decompose statement
+	while( pos != std::string::npos ) {
+		spaceSplit.push_back( fen.substr( initialPos, pos - initialPos ) );
+		initialPos = pos + 1;
+
+		pos = fen.find(' ', initialPos );
+	}
+
+	// Add the last one
+	spaceSplit.push_back( fen.substr( initialPos, std::min( pos, fen.size() ) - initialPos + 1 ) );
+
+
+
+	//std::stringstream ss(fen);
+	//std::string item;
+/*	while (std::getline(ss, item, ' ')) {
 		spaceSplit.push_back(item);
 	}
+*/
+
+
+	pos = spaceSplit[0].find('/');
+	initialPos = 0;
+
+	// Decompose statement
+	while( pos != std::string::npos ) {
+		piecesByRank.push_back( spaceSplit[0].substr( initialPos, pos - initialPos ) );
+		initialPos = pos + 1;
+
+		pos = spaceSplit[0].find('/', initialPos );
+	}
+
+	// Add the last one
+	piecesByRank.push_back( spaceSplit[0].substr( initialPos, std::min( pos, spaceSplit[0].size() ) - initialPos + 1 ) );
+/*
 
 	ss = std::stringstream(spaceSplit[0]);
 	while (std::getline(ss, item, '/')) {
 		piecesByRank.push_back(item);
 	}
+*/
 
 	unsigned int rank = 7;
 	for (unsigned int i=0; i<8; i++)
@@ -818,14 +853,14 @@ unsigned int Board::divide(unsigned int depth)
 	{
 		executeMove(move);
 		nodes = perft(depth - 1);
-		std::cout <<  move.toShortString() <<  " " << nodes << std::endl;
+		//std::cout <<  move.toShortString() <<  " " << nodes << std::endl;
 		nodeTotal += nodes;
 		undoMove(move);
 	}
 
-	std::cout << std::endl;
-	std::cout << "Total nodes: " << nodeTotal << std::endl;
-	std::cout << "Total moves: " << nMoves << std::endl;
+	//std::cout << std::endl;
+	//std::cout << "Total nodes: " << nodeTotal << std::endl;
+	//std::cout << "Total moves: " << nMoves << std::endl;
 	return nodes;
 }
 
@@ -1004,7 +1039,7 @@ int Board::seeCapture2(Move captureMove, Color color)
 
 
 		fromSet = attackers ? 1ULL << attackers : 0;
-		std::cout << d << std::endl;
+		//std::cout << d << std::endl;
 
 	} while (fromSet);
 

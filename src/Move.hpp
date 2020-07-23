@@ -20,7 +20,7 @@
 #ifndef Move_H
 #define Move_H
 
-#include <iostream>
+//#include <iostream>
 #include <bitset>
 #include <string>
 #include <array>
@@ -200,7 +200,7 @@ private:
     unsigned int myMoveRating;
 };
 
-
+/*
 inline std::ostream& operator<<(std::ostream &strm, const Move &move) {
 
 	std::bitset<4> flags(move.getFlags());
@@ -220,5 +220,6 @@ inline std::ostream& operator<<(std::ostream &strm, const Move &move) {
 
 	return strm;
 }
+*/
 
 #endif // Move_H

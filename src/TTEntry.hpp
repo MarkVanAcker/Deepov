@@ -85,7 +85,7 @@ Depth : 5 bits -> depth up to 32
 Score : 21 bits -> score -1 048 576 up to 1 048 576 (max score is 1 000 000)
 
 */
-
+/*
 inline std::ostream& operator<<(std::ostream &strm, const NodeType &node) {
 
         if (node == NodeType::NONE)
@@ -117,5 +117,5 @@ inline std::ostream& operator<<(std::ostream &strm, const TTEntry &entry) {
     strm << "Best move " << Utils::Move16ToShortString(entry.getBestmove());
 	return strm;
 }
-
+*/
 #endif /* TTENTRY_HPP_ */
